@@ -1,4 +1,5 @@
 const kdbxweb = require('kdbxweb');
+const suppplant = require('suppplant');
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
@@ -9,8 +10,10 @@ fs.writeFileAsync = util.promisify(fs.writeFile);
 const {
     source: keepassFile,
     key: keepassKeyfile,
+    // optional arguments with defaults
     target: targetFile = '.env',
-    _: [keepassEntryTitle],
+    title: entryTitleTemplate = '{title}',
+    _: [title],
 } = argv;
 
 const cwd = process.cwd();
@@ -35,26 +38,22 @@ const read = async () => {
 
 read()
     .then(entries => {
+        const entryTitle = suppplant(entryTitleTemplate, { title });
         const filteredEntries = entries
-            .filter(
-                entry =>
-                    entry.fields && entry.fields.Title === keepassEntryTitle
-            )
+            .filter(entry => entry.fields && entry.fields.Title === entryTitle)
             .map(entry => entry.fields.Notes);
 
         if (filteredEntries.length !== 1) {
             throw new Error(
                 `Exactly 1 entry expected, but ${
                     filteredEntries.length
-                } are found by title ${keepassEntryTitle}`
+                } are found by title ${entryTitle}`
             );
         }
 
         const [content] = filteredEntries;
 
-        console.log(
-            `Writing the Notes of ${keepassEntryTitle} to ${targetFile} ...`
-        );
+        console.log(`Writing the Notes of ${entryTitle} to ${targetFile} ...`);
         return content;
     })
     .then(content => {
