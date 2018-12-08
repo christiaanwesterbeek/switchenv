@@ -1,6 +1,6 @@
 {
   "name": "switchenv",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "command line interface for quickly switching .env file from Keepass entries (content from the Notes field)",
   "main": "index.js",
   "repository": "https://github.com/christiaanwesterbeek/switchenv.git",
@@ -17,6 +17,9 @@
   ],
   "readmeFilename": "README.md",
   "license": "MIT",
+  "scripts": {
+    "test": "tape test/**/*.js"
+  },
   "dependencies": {
     "kdbxweb": "1.2.5",
     "minimist": "1.2.0",
@@ -28,6 +31,7 @@
     "eslint-config-prettier": "3.3.0",
     "eslint-plugin-prettier": "3.0.0",
     "nodemon": "1.18.7",
-    "prettier": "1.15.3"
+    "prettier": "1.15.3",
+    "tape": "4.9.1"
   }
 }
