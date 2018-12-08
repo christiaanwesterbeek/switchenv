@@ -12,9 +12,11 @@ const {
   _: [keepassEntryTitle]
 } = argv;
 
+const cwd = process.cwd();
+
 const read = async () => {
-  const keyFileArrayBuffer = await fs.readFileAsync(path.join(__dirname, keepassKeyfile));
-  const dataAsArrayBuffer = await fs.readFileAsync(path.join(__dirname, keepassFile));
+  const keyFileArrayBuffer = await fs.readFileAsync(path.join(cwd, keepassKeyfile));
+  const dataAsArrayBuffer = await fs.readFileAsync(path.join(cwd, keepassFile));
 
   const credentials = new kdbxweb.Credentials(
     kdbxweb.ProtectedValue.fromString(''), // keyfile only kdbx file
@@ -45,7 +47,7 @@ read()
   })
   .then(content => {
     return fs.writeFileAsync(
-      path.join(__dirname, '../.env'),
+      path.join(cwd, '.env'),
       content
     )
   })
