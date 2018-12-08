@@ -57,3 +57,7 @@ In this example
 
 - `--target /config.js` if you want to write to something else than /.env
 - `--title .env-{title}-backend` if you have longer entry titles like `.env-development-backend` instead of just `development`. In this case, you can still run `yarn switchenv development`
+
+## Todo
+
+- Each time switchenv is run, warn if the source directory containing the keepass and key file is not in .gitignore
