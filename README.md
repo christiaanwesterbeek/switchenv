@@ -9,6 +9,22 @@ or
 
 `npm install -D switchenv`
 
+## Usage
+
+You need to go through a one time setup. That will take you a few minutes.
+Afterwards you'll be able to run this command to change your .env file.
+
+`yarn switchenv development`
+
+or
+
+`npm run switchenv development`
+
+It will read and decrypt the keepass file and look for an entry with the title: development.
+The Notes of that entry will overwrite the .env file.
+
+Nota Bene: It will overwrite the .env file without warning!
+
 ## Setup
 
 1. Create a directory to store your keepass file and keyfile in.
@@ -38,16 +54,3 @@ In this example
 - `-k /envs/keyfile` is the path to the  key file.
 
 You can add `-t /config.js` if you want to write to something else than /.env
-
-## Usage
-
-`yarn switchenv development`
-
-or
-
-`npm run switchenv development`
-
-That will read and decrypt the keepass file and look for an entry with the title development.
-The Notes of that entry will overwrite the .env file.
-
-Nota Bene: It will overwrite the .env file without warning!
