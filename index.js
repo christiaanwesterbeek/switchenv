@@ -7,15 +7,14 @@ fs.readFileAsync = util.promisify(fs.readFile)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 
 const {
-  d: keepassDir,
   f: keepassFile,
   k: keepassKeyfile,
-  e: keepassEntryTitle
+  _: [keepassEntryTitle]
 } = argv;
 
 const read = async () => {
-  const keyFileArrayBuffer = await fs.readFileAsync(path.join(__dirname, keepassDir, keepassKeyfile));
-  const dataAsArrayBuffer = await fs.readFileAsync(path.join(__dirname, keepassDir, keepassFile));
+  const keyFileArrayBuffer = await fs.readFileAsync(path.join(__dirname, keepassKeyfile));
+  const dataAsArrayBuffer = await fs.readFileAsync(path.join(__dirname, keepassFile));
 
   const credentials = new kdbxweb.Credentials(
     kdbxweb.ProtectedValue.fromString(''), // keyfile only kdbx file
