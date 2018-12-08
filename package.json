@@ -1,6 +1,6 @@
 {
   "name": "switchenv",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "command line interface for quickly switching .env file from Keepass entries (content from the Notes field)",
   "main": "index.js",
   "repository": "https://github.com/christiaanwesterbeek/switchenv.git",
