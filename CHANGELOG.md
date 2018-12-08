@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1]
+### Fixed
+- Readme incorrectly used single dash for script parameters
+
 ## [1.1.0]
 ### Added
 - Allow flexible keepass entry titles like `.env-development-backend` instead of just `development` and still be able to run `yarn switchenv development`.

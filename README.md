@@ -43,17 +43,17 @@ NB: Your keepass and key file should never be committed!
 {
   ...
   "scripts": {
-    "switchenv": "node ./node_modules/switchenv -source /envs/env.kdbx -key /envs/keyfile"
+    "switchenv": "node ./node_modules/switchenv --source /envs/env.kdbx --key /envs/keyfile"
   },
   ...
 }
 ```
 
 In this example
-- `-source /envs/env.kdbx` is the path to the keepass file.
-- `-key /envs/keyfile` is the path to the key file.
+- `--source /envs/env.kdbx` is the path to the keepass file.
+- `--key /envs/keyfile` is the path to the key file.
 
 ### Optionally
 
-- `-target /config.js` if you want to write to something else than /.env
-- `-title .env-{title}-backend` if you have longer entry titles like `.env-development-backend` instead of just `development`. In this case, you can still run `yarn switchenv development`
+- `--target /config.js` if you want to write to something else than /.env
+- `--title .env-{title}-backend` if you have longer entry titles like `.env-development-backend` instead of just `development`. In this case, you can still run `yarn switchenv development`
