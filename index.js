@@ -9,6 +9,7 @@ fs.writeFileAsync = util.promisify(fs.writeFile);
 const {
     f: keepassFile,
     k: keepassKeyfile,
+    t: targetFile = '.env',
     _: [keepassEntryTitle],
 } = argv;
 
@@ -51,11 +52,13 @@ read()
 
         const [content] = filteredEntries;
 
-        console.log(`Writing the Notes of ${keepassEntryTitle} to .env ...`);
+        console.log(
+            `Writing the Notes of ${keepassEntryTitle} to ${targetFile} ...`
+        );
         return content;
     })
     .then(content => {
-        return fs.writeFileAsync(path.join(cwd, '.env'), content);
+        return fs.writeFileAsync(path.join(cwd, targetFile), content);
     })
     .then(() => {
         console.log('Done');

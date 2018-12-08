@@ -12,21 +12,20 @@ or
 ## Setup
 
 1. Create a directory to store your keepass file and keyfile in.
-2. In that directory create a keepass file where each entry is an environment.
-3. To add an environment to the keepass file, create a new entry in it.
+2. Add the created directory to your .gitignore file!!
+
+NB: Your keepass and key file should never be committed!
+
+3. In that directory create a keepass file where each entry is an environment.
+4. To add an environment to the keepass file, create a new entry in it.
   - The Title field of the entry should be the name of your environment. Use names like development, staging, production.
   - The Notes field of the entry is the desired contents of your .env file for that environment.
-4. Generate a key file for the keepass file and preferably store it in the same directory as your keepass file.
-
-Nota Bene: Add `envs/` to your .gitignore file.
-
-Your keepass and key file should never be committed!
-
-5. In your app's `package.json` file add a switchenv command in the `scripts` section.
+5. Generate a key file for the keepass file and preferably store it in the same directory as your keepass file.
+6. In your app's `package.json` file add a `switchenv` command in the `scripts` section.
 
 ```
 {
-  "name": "your-app",
+  ...
   "scripts": {
     "switchenv": "node ./node_modules/switchenv -f /envs/env.kdbx -k /envs/keyfile"
   },
@@ -35,8 +34,10 @@ Your keepass and key file should never be committed!
 ```
 
 In this example
-- `-f /envs/env.kdbx` -> the path to the keepass file.
-- `-k /envs/keyfile` -> the path to the  key file.
+- `-f /envs/env.kdbx` is the path to the keepass file.
+- `-k /envs/keyfile` is the path to the  key file.
+
+You can add `-t /config.js` if you want to write to something else than /.env
 
 ## Usage
 
