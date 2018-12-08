@@ -5,6 +5,17 @@
   "main": "index.js",
   "repository": "https://github.com/christiaanwesterbeek/switchenv.git",
   "author": "Christiaan Westerbeek <chris@devotis.nl>",
+  "keywords": [
+    "switchenv",
+    "keepass",
+    "env",
+    ".env",
+    "environment",
+    "variables",
+    "config",
+    "settings"
+  ],
+  "readmeFilename": "README.md",
   "license": "MIT",
   "dependencies": {
     "kdbxweb": "1.2.5",
