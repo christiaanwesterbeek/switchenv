@@ -1,4 +1,8 @@
 # switchenv
+[![build status](https://travis-ci.org/christiaanwesterbeek/switchenv.svg?branch=master)](https://travis-ci.org/christiaanwesterbeek/switchenv)
+[![npm version](https://badge.fury.io/js/switchenv.svg)](https://www.npmjs.org/package/switchenv)
+[![known vulnerabilities](https://snyk.io/test/github/christiaanwesterbeek/switchenv/badge.svg?targetFile=package.json)](https://snyk.io/test/github/christiaanwesterbeek/switchenv?targetFile=package.json)
+
 Command line tool to quickly switch .env file from Keepass entries (content from the Notes field)
 
 ## Install
