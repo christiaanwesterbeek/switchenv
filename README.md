@@ -5,6 +5,9 @@
 
 Command line tool to quickly switch .env file from Keepass entries (content from the Notes field)
 
+![thousand words](https://raw.githubusercontent.com/christiaanwesterbeek/switchenv/develop/media/thousand-words.png)
+
+
 ## Install
 
 `yarn add -D switchenv`
