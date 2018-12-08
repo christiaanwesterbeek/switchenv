@@ -7,9 +7,9 @@ fs.readFileAsync = util.promisify(fs.readFile);
 fs.writeFileAsync = util.promisify(fs.writeFile);
 
 const {
-    f: keepassFile,
-    k: keepassKeyfile,
-    t: targetFile = '.env',
+    source: keepassFile,
+    key: keepassKeyfile,
+    target: targetFile = '.env',
     _: [keepassEntryTitle],
 } = argv;
 

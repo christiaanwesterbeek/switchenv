@@ -43,14 +43,16 @@ NB: Your keepass and key file should never be committed!
 {
   ...
   "scripts": {
-    "switchenv": "node ./node_modules/switchenv -f /envs/env.kdbx -k /envs/keyfile"
+    "switchenv": "node ./node_modules/switchenv -source /envs/env.kdbx -key /envs/keyfile"
   },
   ...
 }
 ```
 
 In this example
-- `-f /envs/env.kdbx` is the path to the keepass file.
-- `-k /envs/keyfile` is the path to the  key file.
+- `-source /envs/env.kdbx` is the path to the keepass file.
+- `-key /envs/keyfile` is the path to the key file.
 
-You can add `-t /config.js` if you want to write to something else than /.env
+### Optionally
+
+- `-target /config.js` if you want to write to something else than /.env
