@@ -14,6 +14,48 @@ const keepassKeyfile = './test/fixtures/keyfile';
 const entryTitleTemplate = '{title}';
 const title = 'development';
 
+test('Core throws error with incorrect arguments', async t => {
+    await core({}).catch(error => {
+        t.ok(
+            error,
+            'throwed an error when keepassFile is empty (--source parameter)'
+        );
+    });
+
+    await core({
+        keepassFile,
+    }).catch(error => {
+        t.ok(
+            error,
+            'throwed an error when keepassKeyfile is empty (--key parameter)'
+        );
+    });
+
+    await core({
+        keepassFile,
+        keepassKeyfile,
+        entryTitleTemplate: 'wrong',
+    }).catch(error => {
+        t.ok(
+            error,
+            'throwed an error when entryTitleTemplate does not contain {title} (--title parameter)'
+        );
+    });
+
+    await core({
+        keepassFile,
+        keepassKeyfile,
+        entryTitleTemplate: '{title}',
+    }).catch(error => {
+        t.ok(
+            error,
+            "throwed an error when no title to lookup was provided (that's the `development` in `yarn switchenv development`)"
+        );
+    });
+
+    t.end();
+});
+
 test('Integration (core)', async t => {
     const targetFile = '/test/.env';
     await core({
