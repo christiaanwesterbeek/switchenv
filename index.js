@@ -38,7 +38,9 @@ const read = async () => {
 
 read()
     .then(entries => {
-        const entryTitle = suppplant(entryTitleTemplate, { title });
+        const entryTitle = suppplant(entryTitleTemplate.toLowerCase(), {
+            title,
+        });
         const filteredEntries = entries
             .filter(entry => entry.fields && entry.fields.Title === entryTitle)
             .map(entry => entry.fields.Notes);
